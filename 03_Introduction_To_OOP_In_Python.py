@@ -150,5 +150,5 @@ s2.info()
 #  Classes provide a clean, reusable structure
 #  Use __init__() to avoid attribute initialization errors
 #  Don’t access attributes before setting them!
-
 # This file demonstrates foundational concepts in Python OOP and scope management.
+
