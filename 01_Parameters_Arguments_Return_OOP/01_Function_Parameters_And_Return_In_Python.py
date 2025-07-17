@@ -12,6 +12,7 @@
 # Functions vs Methods
 # -------------------------------
 # Functions: Pre-defined or user-defined blocks of code that can be called independently.
+
 print("Yasir")  # 'print' is a built-in function.
 
 # Methods: Functions associated with objects/data types.
@@ -100,7 +101,7 @@ addition(2, 4)
 # def addition(n1, n2):
 #     total = n1 + n2
 #     print(total)
-# addition(2, 4, 3)  # ❌ This will throw an error (too many arguments)
+# addition(2, 4, 3)  # This will throw an error (too many arguments)
 
 # -------------------------------
 # List Sum Example with Logic
