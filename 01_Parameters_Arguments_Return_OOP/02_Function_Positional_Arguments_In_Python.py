@@ -12,7 +12,7 @@ total_marks(84, 65, 67, 54, 75)
 # Named Arguments (order doesn't matter)
 total_marks(maths=100, urdu=14, english=13, science=29, history=32)
 
-# ❌ Mixing positional after named is not allowed
+# Mixing positional after named is not allowed
 # total_marks(maths=100, 54, 483)  # Error
 
 
