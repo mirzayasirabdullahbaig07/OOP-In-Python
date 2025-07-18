@@ -1,8 +1,8 @@
 # What are Dunder Methods in Python?
 
 # Dunder (Double Underscore) methods are special methods in Python that start and end with double underscores (__).
-
 # Example: __init__, __str__, __len__, __add__, etc.
+
 # These methods allow us to define custom behavior for built-in operations like object creation, printing, addition, etc.
 
 class Father:
