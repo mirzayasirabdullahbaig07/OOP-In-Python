@@ -50,3 +50,5 @@ obj2.display()
 # You could also create the object like this (normal way):
 # obj1 = Student("Yasir", 24, "Male")
 # obj1.display()
+
+# This is all about the Class Methods
