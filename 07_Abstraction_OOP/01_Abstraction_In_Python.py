@@ -27,7 +27,6 @@ class Car(ABC):  # Inheriting from ABC to make it an abstract class
     def sound(self):
         pass
 
-
 # Creating a subclass 'Audi' that inherits from 'Car'
 class Audi(Car):
     
@@ -39,14 +38,12 @@ class Audi(Car):
     def sound(self):
         print("SPORTS SOUND")
 
-
 # Creating an object of Audi and calling the sound method
 obj = Audi("1200cc")
 obj.sound()
 
 # -------------------------------
-# Output:
-# SPORTS SOUND
+# Output: SPORTS SOUND
 # -------------------------------
 
 # Why use abstraction?
@@ -54,7 +51,7 @@ obj.sound()
 # - To enforce certain methods in child classes
 # - To hide internal details and show only necessary parts
 
-# Key Points:
+# Summary
 # - Abstract classes cannot be instantiated directly.
 # - Every abstract method must be implemented in child class.
 # - If a class has even one abstract method, it becomes an abstract class.
