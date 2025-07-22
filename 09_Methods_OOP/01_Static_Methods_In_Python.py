@@ -40,3 +40,5 @@ ob1.display_events()
 # Calling static method directly using class name (no need to create object)
 current_date = datetime.now()
 calender.is_weekened(current_date)
+
+# This is all about the Static Methods
