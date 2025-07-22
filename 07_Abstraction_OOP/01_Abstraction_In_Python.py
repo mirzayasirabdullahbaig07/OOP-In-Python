@@ -51,7 +51,7 @@ obj.sound()
 # - To enforce certain methods in child classes
 # - To hide internal details and show only necessary parts
 
-# Summary
+# Important Points
 # - Abstract classes cannot be instantiated directly.
 # - Every abstract method must be implemented in child class.
 # - If a class has even one abstract method, it becomes an abstract class.
