@@ -77,9 +77,7 @@ print(loaded_student.display())
 # NEVER unpickle data from an untrusted or unknown source.
 # Pickle files can execute malicious code if tampered with.
 
-# ------------------------------------------------------------
-#  Summary
-# ------------------------------------------------------------
+#  Important Points
 #  Use `pickle.dump(obj, file)` to serialize
 #  Use `pickle.load(file)` to deserialize
 #  Pickle works for lists, dicts, custom classes, and more
