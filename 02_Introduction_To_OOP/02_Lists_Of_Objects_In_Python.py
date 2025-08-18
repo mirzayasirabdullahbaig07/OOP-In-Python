@@ -1,3 +1,19 @@
+# List of Objects In python
+
+# In Python Object-Oriented Programming (OOP), an object is an instance of a class that contains its own data (attributes) and behaviors (methods).
+
+# A list of objects means storing multiple objects of the same (or different) class inside a Python list. This allows us to easily manage and process many objects together, iterate over them, or search for specific ones.
+
+# Example in Context
+
+# Bank is a class (blueprint).
+# Each account is an object created from the class.
+# All accounts are stored in a list of objects (banks).
+# You can loop over the list, call methods on each object, or find a particular object.
+
+# So in short:
+# “A list of objects in Python is simply a collection of class instances stored inside a list, which allows us to manage multiple entities in a structured way using OOP principles.”
+
 from random import randint
 
 class Bank:
