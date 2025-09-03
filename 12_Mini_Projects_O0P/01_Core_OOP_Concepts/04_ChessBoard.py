@@ -1,11 +1,11 @@
 """
-Project: ChessBoard Simulation with OOP in Python
+Project: Movie Booking System with OOP in Python
 
 Category: Core OOP Concepts
 
 Explanation:
 ------------
-This project simulates a ChessBoard and pieces using Object-Oriented Programming concepts.
+This project simulates a simple Movie Booking System using Object-Oriented Programming concepts.  
 We demonstrate:
     - Classes and Objects
     - Inheritance
@@ -13,23 +13,128 @@ We demonstrate:
     - Encapsulation
 
 Main Classes:
-1. ChessPiece (Base class)
-   - Common attributes: name, color, position
-   - Common methods: move()
+1. Seat
+   - Attributes: number, seat_type, is_booked
+   - Methods: book() → marks the seat as booked
 
-2. Derived Classes: Pawn, Rook, Knight, Bishop, Queen, King
-   - Each overrides the move() method with simple rules (not full chess rules, but enough to simulate).
+2. Movie
+   - Attributes: title, price
+   - Represents the movie being booked
 
-3. ChessBoard
-   - Maintains an 8x8 board
-   - Places pieces on the board
-   - Provides methods to move pieces
-   - Prints the current state of the board
+3. Payment (Base Class)
+   - Method: pay(amount)
+   - Abstract class for different payment types
+
+4. Derived Payment Classes: CardPayment, WalletPayment
+   - Override the pay() method
+   - Demonstrates Polymorphism (different behavior for the same interface)
+
+5. BookingSystem
+   - Maintains list of seats
+   - Provides methods: select_seats(), confirm_booking()
+   - Handles the overall booking flow (seat selection + payment + confirmation)
+
+OOP Concepts Used:
+------------------
+1. Encapsulation:
+   - Each class manages its own data (e.g., Seat knows its own booking status).  
+
+2. Abstraction:
+   - Payment details are hidden behind the common pay() method.  
+
+3. Inheritance:
+   - Payment subclasses (CardPayment, WalletPayment) inherit from Payment.  
+
+4. Polymorphism:
+   - Different payment methods (Card, Wallet) use the same interface pay(), but behave differently.  
 
 Note:
-This is a simplified simulation to demonstrate OOP concepts, not a complete chess engine.
-
+-----
+This is a simplified simulation for learning OOP, not a production-level booking system.  
+It demonstrates how seat selection, booking, and payment logic can be modeled using classes.
 """
+
+# ---------- Seat ----------
+class Seat:
+    def __init__(self, number, seat_type="Standard"):
+        self.number = number
+        self.seat_type = seat_type
+        self.is_booked = False
+
+    def book(self):
+        if self.is_booked:
+            return False
+        self.is_booked = True
+        return True
+
+
+# ---------- Movie ----------
+class Movie:
+    def __init__(self, title, price):
+        self.title = title
+        self.price = price
+
+
+# ---------- Payment (Polymorphism) ----------
+class Payment:
+    def pay(self, amount):
+        pass
+
+
+class CardPayment(Payment):
+    def pay(self, amount):
+        print(f"Paid {amount} using Card.")
+        return True
+
+
+class WalletPayment(Payment):
+    def pay(self, amount):
+        print(f"Paid {amount} using Wallet balance.")
+        return True
+
+
+# ---------- Booking System ----------
+class BookingSystem:
+    def __init__(self, movie, total_seats):
+        self.movie = movie
+        self.seats = [Seat(i + 1) for i in range(total_seats)]
+
+    def select_seats(self, seat_numbers):
+        selected = []
+        for num in seat_numbers:
+            seat = self.seats[num - 1]
+            if seat.book():
+                selected.append(seat)
+            else:
+                print(f"Seat {seat.number} is already booked!")
+        return selected
+
+    def confirm_booking(self, seats, payment_method: Payment):
+        if not seats:
+            print("No seats selected.")
+            return
+        total = self.movie.price * len(seats)
+        if payment_method.pay(total):
+            print(f"Booking confirmed for {self.movie.title}. Seats: {[s.number for s in seats]}")
+        else:
+            print("Payment failed. Booking cancelled.")
+
+
+# ---------- Example Usage ----------
+if __name__ == "__main__":
+    movie = Movie("Inception", price=300)
+    system = BookingSystem(movie, total_seats=5)
+
+    # Select seats
+    selected = system.select_seats([1, 2])
+
+    # Pay with wallet
+    system.confirm_booking(selected, WalletPayment())
+
+    # Try booking same seat again
+    selected2 = system.select_seats([2, 3])
+    system.confirm_booking(selected2, CardPayment())
+
 
 # Base Class
 class ChessPiece:
