@@ -1,7 +1,7 @@
 """
 Project: File Handling System with OOP in Python
 
-Category: Core OOP Concepts
+Category: Encapsulation, Abstraction, Inheritance, Polymorphism
 
 Explanation:
 ------------
